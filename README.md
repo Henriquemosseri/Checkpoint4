@@ -1,23 +1,24 @@
-Performance Cache API
-Resumo
+#**Performance Cache API**#
+
+**Resumo**
 API em C# com ASP.NET Core que busca usuários do MySQL e usa Redis para cache, melhorando a performance.
 Foco em microserviços: serviço pequeno, independente e rápido, seguindo boas práticas de arquitetura moderna.
 
-Estrutura
+**Estrutura**
 Model: User → Id, Name, Email, UltimoAcesso.
 Controller: HomeController → Recebe requisições, verifica cache e consulta banco.
 
-Funcionalidade
+**Funcionalidade**
 Ao receber GET /api/home:
 Verifica se os usuários estão no Redis.
 Se estiverem, retorna os dados do cache.
 Se não, busca no MySQL, atualiza e salva no Redis.
 
-Cache:
+**Cache:**
 Expira em 15 minutos.
 Reduz consultas repetidas ao banco, aumentando baixa latência.
 
-Conceitos de Microserviço Aplicados:
+**Conceitos de Microserviço Aplicados:**
 Serviço único e focado:
 Cada microserviço deve ter uma única responsabilidade. Neste caso, ele gerencia apenas os usuários. Isso facilita manutenção, testes e evolução do serviço sem impactar outros serviços.
 Escalabilidade independente:
